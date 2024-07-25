@@ -1,6 +1,13 @@
+
+const {Car} = require('../models/carModel');
+
+
 module.exports.carController = {
   list: async (req, res) => {
-    res.send("listed");
+    const cars = await Car.find();
+    res.status(200).json({
+      error:false,message:"Cars are listed!",result:cars
+    })
   },
   create: async (req, res) => {},
   read: async (req, res) => {},
