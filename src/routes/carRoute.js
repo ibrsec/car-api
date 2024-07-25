@@ -6,13 +6,13 @@ const {carController} = require('../controllers/carController')
 
 router.route("/")
 .get(carController.list)
-.post()
+.post(carController.create)
 
 router.route("/:id")
-.get()
-.put()
-.delete()
-.patch()
+.get(carController.read)
+.put(carController.update)
+.delete(carController.delete)
+.patch(carController.patchUpdate)
 
 
 module.exports = router;

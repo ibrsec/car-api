@@ -16,7 +16,10 @@ const app= express();
 const dbConnect= require('./src/config/dbConnection');
 dbConnect();
 
-  
+
+app.use(express.json());  
+
+
 
 /* ------------------------------- routes ------------------------------- */
 app.all("/",(req,res)=>{
@@ -26,10 +29,10 @@ app.all("/",(req,res)=>{
 app.use("/cars", require('./src/routes/carRoute'))
 
 /* ------------------------------- errorhandler ------------------------------- */
+app.use(require('./src/middlewares/errorHandler'));
+
+
 /* ------------------------------- listen port ------------------------------- */
-
-
-
 const PORT= process.env.PORT;
 app.listen(PORT,()=>console.log('server is running on ',PORT))
 

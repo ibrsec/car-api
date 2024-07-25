@@ -32,6 +32,8 @@ const CarScheama = new mongoose.Schema(
       // 1 -> musait, 2 -> musait degil
       type: String,
       enum: [1, 2],
+
+      required: true,
     },
   },
   {
